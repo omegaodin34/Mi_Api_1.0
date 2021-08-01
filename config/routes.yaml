@@ -2,4 +2,10 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+health_check:
+    path: /check
+    controller: App\Controller\HealthCheckController::index
+    methods: [GET]
+
+
 
