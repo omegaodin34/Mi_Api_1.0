@@ -11,4 +11,12 @@ health_check1:
     path: /che
     controller: App\Controller\HealthCheckController::index1
     methods: [GET]
+health_check2:
+    path: /con
+    controller: App\Controller\HealthCheckController::index2
+    methods: [GET]
+
+health_check3:
+    path: /MiIndice
+    controller: App\Controller\ConferenceController::index
 
