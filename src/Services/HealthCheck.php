@@ -16,4 +16,10 @@ class HealthCheck
             'status' => 'ok'
         ];
     }
+    public function getName(): array
+    {
+        return [
+            'status' => 'Mi nombre es Jose'
+        ];
+    }
 }
