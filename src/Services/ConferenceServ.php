@@ -4,17 +4,23 @@
 namespace App\Services;
 
 
-class HealthCheck
+
+
+
+
+class ConferenceServ
 {
     /**
      * @return string[]
      * getStatus()= devuelve un array con el status ok;
      */
-    public function getStatus(): array
+    public function getStatusCserv(): array
     {
         return [
-            'status' => 'ok'
+            'status de conferenceServ' => 'ok'
         ];
     }
 
-}
+
+ }
+
