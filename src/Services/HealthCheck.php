@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services;
 
 
@@ -16,5 +15,4 @@ class HealthCheck
             'status' => 'ok'
         ];
     }
-
 }

@@ -6,15 +6,11 @@ health_check:
     path: /check
     controller: App\Controller\HealthCheckController::index
     methods: [GET]
-controler_serv_status:
-    path: servstatus
-    controller: App\Controller\ConferenceServController::statuscserv
-    methods: [GET]
-controler_serv:
-    path: main
-    controller: App\Controller\ConferenceServController::dashBoard
-    methods: [GET]
 
+list_book:
+    path: books
+    controller: App\Controller\ConferenceServController::listBook
+    methods: [GET]
 
 
 

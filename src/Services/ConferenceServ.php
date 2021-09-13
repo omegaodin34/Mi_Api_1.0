@@ -1,12 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
-
-
-
-
 
 class ConferenceServ
 {
@@ -14,13 +8,11 @@ class ConferenceServ
      * @return string[]
      * getStatus()= devuelve un array con el status ok;
      */
-    public function getStatusCserv(): array
+    public function getListBook(): array
     {
         return [
-            'status de conferenceServ' => 'ok'
+            "Dominion","Celante",'Albatross'
         ];
     }
-
-
  }
 
