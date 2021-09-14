@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BookController extends AbstractController
 {
-
     private BookService $bookService;
 
     public function __construct(BookService $bookService)

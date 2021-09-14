@@ -3,18 +3,29 @@
 
 namespace App\Services;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManager;
 use App\Entity\Book;
 
-
-class BookService extends AbstractController
+class BookService
 {
+    private EntityManager $doctrine;
+
+    /**
+     * BookService constructor.
+     * @param EntityManager $doctrine
+     */
+    public function __construct(EntityManager $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
+    /**
+     * @return Array
+     */
     public function list(): Array
     {
-
-        /*Getting information */
-        $doctrine = $this->getDoctrine();
-        $repository = $doctrine->getRepository(Book::class);
+        /* Getting information */
+        $repository = $this->doctrine->getRepository(Book::class);
         $books = $repository->findAll();
         /* Response preparations */
         $booksResponse = [];
@@ -27,7 +38,7 @@ class BookService extends AbstractController
             ];
         }
 
-        return [$booksResponse];
+        return $booksResponse;
     }
 
 }
