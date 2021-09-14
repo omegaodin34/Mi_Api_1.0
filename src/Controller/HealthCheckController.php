@@ -11,9 +11,9 @@ class HealthCheckController extends AbstractController
 {
     private HealthCheck $healthCheck;
 
-    public function __construct(HealthCheck $healthCheck)
+    public function __construct(HealthCheck $healthChecking)
     {
-        $this->healthCheck = $healthCheck;
+        $this->healthCheck = $healthChecking;
     }
 
     public function index(): JsonResponse
