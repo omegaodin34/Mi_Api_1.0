@@ -6,6 +6,8 @@ health_check:
     path: /check
     controller: App\Controller\HealthCheckController::index
     methods: [GET]
-
-
+book_list:
+    path: /book
+    controller: App\Controller\BookController::books
+    methods: [GET]
 
