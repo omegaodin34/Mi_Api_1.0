@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use Doctrine\ORM\EntityManager;
+
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 
