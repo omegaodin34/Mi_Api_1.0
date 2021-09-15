@@ -1,9 +1,9 @@
 <?php
 
-
 namespace App\Services;
 
-use Doctrine\ORM\EntityManager;
+
+use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 
 class BookService
@@ -12,9 +12,9 @@ class BookService
 
     /**
      * BookService constructor.
-     * @param EntityManager $doctrine
+     * @param EntityManagerInterface $doctrine
      */
-    public function __construct(EntityManager $doctrine)
+    public function __construct(EntityManagerInterface $doctrine)
     {
         $this->doctrine = $doctrine;
     }
