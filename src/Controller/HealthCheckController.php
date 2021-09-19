@@ -15,7 +15,6 @@ class HealthCheckController extends AbstractController
     {
         $this->healthCheck = $healthChecking;
     }
-
     public function index(): JsonResponse
     {
         return new JsonResponse($this->healthCheck->getStatus());

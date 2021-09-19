@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 
+
 class BookService
 {
     private EntityManager $doctrine;
@@ -22,16 +23,17 @@ class BookService
     /**
      * @return Array
      */
+
     public function list(): Array
     {
-        /* Getting information */
+
         $repository = $this->doctrine->getRepository(Book::class);
         $books = $repository->findAll();
-        /* Response preparations */
         $booksResponse = [];
+        $numberOfRegister= 2;
         foreach ($books as $book) {
             /** @var Book $book */
-            $booksResponse[] = [
+            $booksResponse[$numberOfRegister] = [
                 'id' => $book->getId(),
                 'name' => $book->getName(),
                 'description' => $book->getDescription(),
@@ -39,6 +41,7 @@ class BookService
         }
 
         return $booksResponse;
+
     }
 
 }
