@@ -19,7 +19,6 @@ class BookService
     {
         $this->doctrine = $doctrine;
     }
-
     /**
      * @return Array
      */
@@ -49,7 +48,6 @@ class BookService
         /** @var Book $book */
         $repository = $this->doctrine->getRepository(Book::class);
         $book = $repository->find($id);
-
         return ['id' => $book->getId(), 'name' => $book->getName(), 'description' => $book->getDescription(),];
     }
 }

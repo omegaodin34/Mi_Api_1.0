@@ -39,22 +39,12 @@ class Book
     private $description;
 
     /**
-     * @return ?string
+     * @return ?int
      */
-    public function getId(): ?string
+    public function getId(): ?int
     {
         return $this->id;
     }
-    /**
-     * @param string $id
-     * @return Book
-     */
-    public function setId(string $id): Book
-    {
-        $this->id = $id;
-        return $this;
-    }
-
     /**
      * @return ?string
      */
