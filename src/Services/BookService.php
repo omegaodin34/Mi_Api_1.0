@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Form\LibraryFormType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
-
+use Symfony\Component\ErrorHandler\Debug;
 
 class BookService
 {
@@ -18,30 +19,36 @@ class BookService
     public function __construct(EntityManagerInterface $doctrine)
     {
         $this->doctrine = $doctrine;
+
     }
 
     /**
      * @return Array
      */
 
-    public function list(): Array
+    public function list(): array
     {
-
+        /** @var Book $book */
         $repository = $this->doctrine->getRepository(Book::class);
         $books = $repository->findAll();
         $booksResponse = [];
-        $numberOfRegister= 2;
         foreach ($books as $book) {
-            /** @var Book $book */
-            $booksResponse[$numberOfRegister] = [
+            $booksResponse[] = [
                 'id' => $book->getId(),
                 'name' => $book->getName(),
-                'description' => $book->getDescription(),
-            ];
+                'description' => $book->getDescription(),];
+            $booksResponse;
         }
 
         return $booksResponse;
-
     }
 
+    public function findOne($id): array
+    {
+        /** @var Book $book */
+        $repository = $this->doctrine->getRepository(Book::class);
+        $book = $repository->find($id);
+        return  ['id' => $book->getId(), 'name' => $book->getName(), 'description' => $book->getDescription(),];
+
+    }
 }

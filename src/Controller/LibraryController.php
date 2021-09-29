@@ -1,15 +1,12 @@
 <?php
 
-
 namespace App\Controller;
-
-
-use App\Entity\Book;
 use App\Services\BookService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class BookController extends AbstractController
+
+class LibraryController extends AbstractController
 {
 
     private BookService $bookService;
@@ -22,6 +19,13 @@ class BookController extends AbstractController
     public function books(): JsonResponse
     {
         return new JsonResponse($this->bookService->list());
+    }
+    public function booksOne(string $id): JsonResponse
+
+    {
+
+        return new JsonResponse($this->bookService->findOne($id));
+
     }
 
 }
