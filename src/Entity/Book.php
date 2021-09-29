@@ -45,7 +45,6 @@ class Book
     {
         return $this->id;
     }
-
     /**
      * @return ?string
      */

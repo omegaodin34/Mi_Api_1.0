@@ -8,6 +8,17 @@ health_check:
     methods: [GET]
 book_list:
     path: /book
-    controller: App\Controller\BookController::books
+    controller: App\Controller\LibraryController::books
     methods: [GET]
+book_listone:
+    path: /book/{id}
+    controller: App\Controller\LibraryController::booksOne
+    methods: [GET]
+controllers:
+    resource: ../src/Controller
+    type: annotation
+
+
+
+
 
