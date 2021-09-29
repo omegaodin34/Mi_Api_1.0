@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-
+use App\Form\LibraryFormType;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 
@@ -22,15 +23,13 @@ class BookService
     /**
      * @return Array
      */
-    public function list(): Array
+    public function list(): array
     {
-        /* Getting information */
+        /** @var Book $book */
         $repository = $this->doctrine->getRepository(Book::class);
         $books = $repository->findAll();
-        /* Response preparations */
         $booksResponse = [];
         foreach ($books as $book) {
-            /** @var Book $book */
             $booksResponse[] = [
                 'id' => $book->getId(),
                 'name' => $book->getName(),
@@ -41,4 +40,16 @@ class BookService
         return $booksResponse;
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
+    public function findOne($id): array
+    {
+        /** @var Book $book */
+        $repository = $this->doctrine->getRepository(Book::class);
+        $book = $repository->find($id);
+
+        return ['id' => $book->getId(), 'name' => $book->getName(), 'description' => $book->getDescription(),];
+    }
 }
