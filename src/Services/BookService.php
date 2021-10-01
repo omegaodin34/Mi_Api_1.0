@@ -2,12 +2,16 @@
 
 namespace App\Services;
 
-use App\Form\LibraryFormType;
+
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class BookService
+/**
+ * @method getDoctrine()
+ */
+class BookService extends AbstractController
 {
     private EntityManager $doctrine;
 
@@ -19,8 +23,9 @@ class BookService
     {
         $this->doctrine = $doctrine;
     }
+
     /**
-     * @return Array
+     * @return array
      */
     public function list(): array
     {
@@ -38,7 +43,6 @@ class BookService
 
         return $booksResponse;
     }
-
     /**
      * @param $id
      * @return array
@@ -50,4 +54,15 @@ class BookService
         $book = $repository->find($id);
         return ['id' => $book->getId(), 'name' => $book->getName(), 'description' => $book->getDescription(),];
     }
+    public function createOne($name,$description): string
+    {
+        $em = $this->getDoctrine()->getManager();
+        $book = new Book();
+        $book->setName($name);
+        $book->setDescription($description);
+        $em->persist($book);
+        $em->flush();
+        return 'Saved new book with id: '.$book->getId().' Name: '.$book->getName().' Description: '.$book->getDescription();
+    }
+
 }

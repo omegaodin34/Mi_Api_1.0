@@ -10,13 +10,15 @@ book_list:
     path: /book
     controller: App\Controller\LibraryController::books
     methods: [GET]
-book_listone:
+get_book_by_id:
     path: /book/{id}
     controller: App\Controller\LibraryController::booksOne
     methods: [GET]
-controllers:
-    resource: ../src/Controller
-    type: annotation
+create_book_by_id_name_description:
+        path: /book/{name}/{description}
+        controller: App\Controller\LibraryController::createBook
+        methods: [POST]
+
 
 
 

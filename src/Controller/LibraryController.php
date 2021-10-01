@@ -14,7 +14,6 @@ class LibraryController extends AbstractController
     {
         $this->bookService = $bookService;
     }
-
     public function books(): JsonResponse
     {
         return new JsonResponse($this->bookService->list());
@@ -22,5 +21,9 @@ class LibraryController extends AbstractController
     public function booksOne(int $id): JsonResponse
     {
         return new JsonResponse($this->bookService->findOne($id));
+    }
+    public function createBook(string $name,string $description): JsonResponse
+    {
+        return new JsonResponse($this->bookService->createOne($name,$description));
     }
 }
