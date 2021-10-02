@@ -21,6 +21,10 @@ update_book:
     path: /book/{id}
     controller: App\Controller\LibraryController::patchBook
     methods: [PATCH]
+delete_book:
+    path: /book/{id}
+    controller: App\Controller\LibraryController::deleteBook
+    methods: [DELETE]
 
 
 

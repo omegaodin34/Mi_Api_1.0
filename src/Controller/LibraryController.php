@@ -37,4 +37,9 @@ class LibraryController extends AbstractController
         $this->bookService->patchBook($id,$name,$description);
         return new JsonResponse([],Response::HTTP_NO_CONTENT);
     }
+    public function deleteBook($id): JsonResponse
+    {
+        $this->bookService->delBook($id);
+        return new JsonResponse([],Response::HTTP_NO_CONTENT);
+    }
 }
