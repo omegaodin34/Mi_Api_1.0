@@ -12,7 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class BookService extends AbstractController
 {
     private EntityManagerInterface $doctrine;
-
     /**
      * BookService constructor.
      * @param EntityManagerInterface $doctrine
@@ -21,7 +20,6 @@ class BookService extends AbstractController
     {
         $this->doctrine = $doctrine;
     }
-
     /**
      * @return array
      */
@@ -71,5 +69,4 @@ class BookService extends AbstractController
         $book->setDescription($description);
         $em->flush();
     }
-
 }
