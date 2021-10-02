@@ -39,7 +39,7 @@ class LibraryController extends AbstractController
     }
     public function deleteBook($id): JsonResponse
     {
-        $this->bookService->delBook($id);
+        $this->bookService->deleteBook($id);
         return new JsonResponse([],Response::HTTP_NO_CONTENT);
     }
 }

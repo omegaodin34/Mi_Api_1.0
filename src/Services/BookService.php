@@ -69,7 +69,7 @@ class BookService extends AbstractController
         $book->setDescription($description);
         $em->flush();
     }
-    public function delBook($id): void
+    public function deleteBook($id): void
     {
         $em = $this->getDoctrine()->getManager();
         $repository = $this->doctrine->getRepository(Book::class);
