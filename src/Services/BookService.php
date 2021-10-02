@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Services;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
+use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -46,7 +46,7 @@ class BookService extends AbstractController
      * @param $id
      * @return array
      */
-    public function findOne($id): array
+    #[ArrayShape(['id' => "mixed", 'name' => "mixed", 'description' => "mixed"])] public function findOne($id): array
     {
         /** @var Book $book */
         $repository = $this->doctrine->getRepository(Book::class);
