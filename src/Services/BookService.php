@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+
 /**
  * @method getDoctrine()
  */
@@ -52,7 +52,7 @@ class BookService extends AbstractController
         $book = $repository->find($id);
         return ['id' => $book->getId(), 'name' => $book->getName(), 'description' => $book->getDescription(),];
     }
-    public function createOne($name,$description): string
+    public function createOne($name,$description): void
     {
         $em = $this->getDoctrine()->getManager();
         $book = new Book();
@@ -60,8 +60,6 @@ class BookService extends AbstractController
         $book->setDescription($description);
         $em->persist($book);
         $em->flush();
-        return new JsonResponse(status: 204);
-
 
     }
 

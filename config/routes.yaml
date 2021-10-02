@@ -15,9 +15,9 @@ get_book_by_id:
     controller: App\Controller\LibraryController::booksOne
     methods: [GET]
 create_book:
-        path: /book
-        controller: App\Controller\LibraryController::createBook
-        methods: [POST]
+    path: /book
+    controller: App\Controller\LibraryController::createBook
+    methods: [POST]
 
 
 
