@@ -1,7 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-
 health_check:
     path: /check
     controller: App\Controller\HealthCheckController::index
@@ -18,6 +17,10 @@ create_book:
     path: /book
     controller: App\Controller\LibraryController::createBook
     methods: [POST]
+update_book:
+    path: /book/{id}
+    controller: App\Controller\LibraryController::patchBook
+    methods: [PATCH]
 
 
 
