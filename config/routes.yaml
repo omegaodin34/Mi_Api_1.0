@@ -14,13 +14,17 @@ get_book_by_id:
     controller: App\Controller\LibraryController::booksOne
     methods: [GET]
 create_book:
-    path: /book
+    path: /book/
     controller: App\Controller\LibraryController::createBook
     methods: [POST]
 update_book:
     path: /book/{id}
     controller: App\Controller\LibraryController::patchBook
     methods: [PATCH]
+delete_book:
+    path: /book/{id}
+    controller: App\Controller\LibraryController::deleteBook
+    methods: [DELETE]
 
 
 
