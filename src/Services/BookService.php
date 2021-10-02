@@ -60,7 +60,16 @@ class BookService extends AbstractController
         $book->setDescription($description);
         $em->persist($book);
         $em->flush();
-
+    }
+    public function patchBook($id,$name,$description): void
+    {
+        /** @var Book $book */
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->doctrine->getRepository(Book::class);
+        $book = $repository->find($id);
+        $book->setName($name);
+        $book->setDescription($description);
+        $em->flush();
     }
 
 }
