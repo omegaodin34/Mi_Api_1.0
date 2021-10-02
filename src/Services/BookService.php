@@ -5,8 +5,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method getDoctrine()
