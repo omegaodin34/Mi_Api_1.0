@@ -31,4 +31,11 @@ class LibraryController extends AbstractController
         $this->bookService->createOne($name,$description);
         return new JsonResponse([],Response::HTTP_NO_CONTENT);
     }
+    public function patchBook($id,Request $request): JsonResponse
+    {
+        $name = $request->get('name');
+        $description = $request->get('description');
+        $this->bookService->patchBook($id,$name,$description);
+        return new JsonResponse([],Response::HTTP_NO_CONTENT);
+    }
 }
