@@ -7,14 +7,14 @@ health_check:
     controller: App\Controller\HealthCheckController::index
     methods: [GET]
 book_list:
-    path: /books
+    path: /book
     controller: App\Controller\LibraryController::books
     methods: [GET]
 get_book_by_id:
     path: /book/{id}
     controller: App\Controller\LibraryController::booksOne
     methods: [GET]
-create_book_by_id_name_description:
+create_book:
         path: /book/
         controller: App\Controller\LibraryController::createBook
         methods: [POST]

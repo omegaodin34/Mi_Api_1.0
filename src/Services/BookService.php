@@ -6,7 +6,6 @@ use App\Entity\Book;
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 /**
  * @method getDoctrine()
  */
@@ -62,6 +61,7 @@ class BookService extends AbstractController
         $em->persist($book);
         $em->flush();
         return new JsonResponse(status: 204);
+
 
     }
 
