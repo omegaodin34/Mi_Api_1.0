@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Services\BookService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class LibraryController extends AbstractController
@@ -14,7 +15,6 @@ class LibraryController extends AbstractController
     {
         $this->bookService = $bookService;
     }
-
     public function books(): JsonResponse
     {
         return new JsonResponse($this->bookService->list());
@@ -22,5 +22,11 @@ class LibraryController extends AbstractController
     public function booksOne(int $id): JsonResponse
     {
         return new JsonResponse($this->bookService->findOne($id));
+    }
+    public function createBook(Request $request): JsonResponse
+    {
+        $name = $request->get('name');
+        $description = $request->get('description');
+        return new JsonResponse($this->bookService->createOne($name,$description));
     }
 }

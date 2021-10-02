@@ -2,7 +2,7 @@
 
 
 namespace App\Entity;
-
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,8 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @package App\Entity
  */
+
 class Book
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -22,21 +24,21 @@ class Book
      *
      * @var integer
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", nullable=false)
      *
      * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string", nullable=false)
      *
      * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * @return ?int
