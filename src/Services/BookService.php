@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Services;
-
-
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Book;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @method getDoctrine()
  */
 class BookService extends AbstractController
 {
-    private EntityManager $doctrine;
+    private EntityManagerInterface $doctrine;
 
     /**
      * BookService constructor.
@@ -62,7 +61,8 @@ class BookService extends AbstractController
         $book->setDescription($description);
         $em->persist($book);
         $em->flush();
-        return 'Saved new book with id: '.$book->getId().' Name: '.$book->getName().' Description: '.$book->getDescription();
+        return new JsonResponse(status: 204);
+
     }
 
 }
